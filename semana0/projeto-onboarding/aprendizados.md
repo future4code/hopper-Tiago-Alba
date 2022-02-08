@@ -1,0 +1,1 @@
+Esta semana aprendemos sobre alguns comandos de **terminias** e de como **branchs** facilita o trabalho em equipe no cotidiano dos programadores e tambem algumas outras ferramentas. 
