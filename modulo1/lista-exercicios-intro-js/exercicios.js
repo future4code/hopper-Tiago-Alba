@@ -21,7 +21,7 @@ function calculaAreaRetangulo() {
   // implemente sua lógica aqui
   const altura1 = prompt ("Digite a altura de um retangulo ")
   const largura = prompt ( 'Digite a largura de um retangulo')
-  
+
   console.log (altura1*largura)
 }
 
@@ -30,10 +30,10 @@ function imprimeIdade() {
   // implemente sua lógica aqui
   const  anoAtual =  +prompt (" Em que ano estamos ?" )
   const anoNascimento = +prompt ( "Em que ano vc nasceu ?")
-  
-  
+
+
   console.log ( anoAtual - anoNascimento)
-  
+
 }
 
 // EXERCÍCIO 03
@@ -46,14 +46,19 @@ return imc
 // EXERCÍCIO 04
 function imprimeInformacoesUsuario() {
   // implemente sua lógica aqui
-let nome = prompt ("Qual seu nome ?")
- let idade = +prompt ("Qual sua idade ?")
-  let email = prompt ( "Qual seu Email ?")
+nome = prompt ("Qual seu nome ?")
+  idade = prompt ("Qual sua idade ?")
+   email = prompt ( "Qual seu Email ?")
+   info = (`Meu nome é ${nome} tenho ${idade} anos, e o meu email é ${email}`)
+
+
+
+console.log (info)
 
 
   // "Meu nome é NOME, tenho IDADE anos, e o meu email é EMAIL."
-  
-  
+
+
 
 }
 
@@ -95,7 +100,7 @@ return divisão
 // EXERCÍCIO 08
 function checaStringsMesmoTamanho(string1, string2) {
   // implemente sua lógica aqui
-  
+
 let comparando = (string1.length === string2.length )
 
 
@@ -117,9 +122,9 @@ function retornaUltimoElemento(array) {
 
   let ultimo = array [array.length -1]
   return ultimo
-  
 
- 
+
+
 
 
 }
@@ -127,6 +132,7 @@ function retornaUltimoElemento(array) {
 // EXERCÍCIO 11
 function trocaPrimeiroEUltimo(array) {
   // implemente sua lógica aqui
+console.log (array)
 
 
 }
@@ -135,7 +141,7 @@ function trocaPrimeiroEUltimo(array) {
 function checaIgualdadeDesconsiderandoCase(string1, string2) {
   // implemente sua lógica aqui
 
-
+}
 
 // EXERCÍCIO 13
 function checaRenovacaoRG() {
@@ -153,4 +159,4 @@ function checaAnoBissexto(ano) {
 function checaValidadeInscricaoLabenu() {
   // implemente sua lógica aqui
 
-}
+} 
