@@ -49,7 +49,7 @@ function imprimeInformacoesUsuario() {
 let nome = prompt ("Qual seu nome ?")
  let idade = +prompt ("Qual sua idade ?")
   let email = prompt ( "Qual seu Email ?")
-console.log (`Meu nome é ${nome} tenho ${idade} anos, e o meu email é ${email}`)
+
 
   // "Meu nome é NOME, tenho IDADE anos, e o meu email é EMAIL."
   
@@ -127,7 +127,6 @@ function retornaUltimoElemento(array) {
 // EXERCÍCIO 11
 function trocaPrimeiroEUltimo(array) {
   // implemente sua lógica aqui
-console.log (array)
 
 
 }
@@ -136,7 +135,7 @@ console.log (array)
 function checaIgualdadeDesconsiderandoCase(string1, string2) {
   // implemente sua lógica aqui
 
-}
+
 
 // EXERCÍCIO 13
 function checaRenovacaoRG() {
