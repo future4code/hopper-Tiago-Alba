@@ -24,16 +24,16 @@ function retornaArrayOrdenado(array) {
 function retornaNumerosPares(array) {
   
 let par = array.filter((par)=>{
-  return par %2 === 0
+  return par % 2 === 0
 })
 return par
 }
 
 // EXERCÍCIO 05
 function retornaNumerosParesElevadosADois(array) {
- 
+ let elevarADois = retornaNumerosPares(array)
+ return elevarADois.map(x => x * x)
 }
-
 // EXERCÍCIO 06
 function retornaMaiorNumero(array) {
 let maiorNumero = 0
@@ -130,20 +130,24 @@ return autorizadas
 
 // EXERCÍCIO 13B
 function retornaPessoasNaoAutorizadas(pessoas) {
-  let novoArray = [...pessoas]
-  let naoAutorizada = []
-  for (let i = 0; i <= novoArray.length + 5 ; i++) {
-  let podeEntrar = novoArray.shift() 
-  if (podeEntrar.idade <= 14 || podeEntrar.idade >= 60 || podeEntrar.altura <= 1.5) {
-   naoAutorizada.push(podeEntrar)
-   }
-  }
-  return naoAutorizada
+  naoAutorizadas =[]
+    pessoas.filter((autorizadas)=>{
+      if (autorizadas.idade <= 14 || autorizadas.idade >= 60 || autorizadas.altura <= 1.5) {
+        naoAutorizadas.push(autorizadas)
+        }
+    })
+     return naoAutorizadas
+    
 }
 
 // EXERCÍCIO 14
 function retornaContasComSaldoAtualizado(contas) {
-
+  let saldoAtualizado = []
+  for (let i = 0; i < contas.length; i++) {
+    contas[i].saldoTotal = contas[i].saldoTotal - contas[i].compras
+    saldoAtualizado.push(contas[i])
+    }
+    return saldoAtualizado
 }
 
 // EXERCÍCIO 15A
