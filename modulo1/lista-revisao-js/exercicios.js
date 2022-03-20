@@ -142,12 +142,12 @@ function retornaPessoasNaoAutorizadas(pessoas) {
 
 // EXERCÍCIO 14
 function retornaContasComSaldoAtualizado(contas) {
-  let saldoAtualizado = []
   for (let i = 0; i < contas.length; i++) {
-    contas[i].saldoTotal = contas[i].saldoTotal - contas[i].compras
-    saldoAtualizado.push(contas[i])
-    }
-    return saldoAtualizado
+    const debitos = contas[i].compras.reduce((valorAnterior, valorAtual)=> valorAnterior + valorAtual, 0)
+     contas[i].saldoTotal = contas[i].saldoTotal - debitos
+     contas[i].compras = []
+      }
+    return contas  
 }
 
 // EXERCÍCIO 15A
