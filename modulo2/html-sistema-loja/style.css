@@ -1,0 +1,27 @@
+a{
+    background-color: rgba(226, 226, 23, 0.966);
+    padding: 15px;
+    margin: 130px;
+    color: rgb(124, 11, 238);
+}
+h1{
+    background-color: white;
+
+}
+img{
+    width: 50px;
+}
+.imagem{
+    width: 120px;
+    position: absolute;
+    left: 500px;
+    top: 0px;
+    }
+.fundo-vermelho{
+    background-color: red;
+    color: blanchedalmond;
+}
+.fundo-roxo{
+    background-color: purple;
+    color: white;
+}

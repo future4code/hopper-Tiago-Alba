@@ -1,0 +1,24 @@
+img{
+    width: 200px;
+}
+a{
+    background-color: rgba(226, 226, 23, 0.966);
+    padding: 15px;
+    margin: 130px;
+    color: rgb(124, 11, 238);
+}
+h2{
+    background-color: red;
+    color: blanchedalmond;
+}
+p{
+    background-color: purple;
+    color: white;
+}
+td{
+padding: 190px;
+background-color:pink;
+}
+th{
+    background-color:orange;
+}
