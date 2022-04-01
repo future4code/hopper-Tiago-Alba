@@ -1,0 +1,37 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+h1 {
+    display: flex;
+    
+    
+justify-content: space-between; ;    background-color: mediumvioletred;
+}
+.botao{
+    border: 10px;
+    background-color:white;
+}
+.imagen{
+    width: 40px;
+}
+.grade{
+    height: 100vw;
+    display: grid;
+    grid-template-columns: 1fr 4fr  ;
+    grid-template-rows: 1fr;
+   
+    background-color: pink;
+}
+.bolos{
+    background-color: white;
+    display: grid;
+grid-template-columns: 1fr 1fr 1fr 1fr;
+grid-template-rows: 1fr 1fr ;
+
+
+
+}
+img{
+    width: 300px;
+}
