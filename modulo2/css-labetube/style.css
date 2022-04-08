@@ -25,20 +25,23 @@ header h1 {
 .grade{
     height: 100vh;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 40% 40%;
- margin: 50px;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-rows: 35% 35%;
+ margin: 25px;
  
-  
+  }
+main div{
+   
+ border-style: ridge;
     
 }
-main div{
-    border: 10px;
-    border-style: solid;
-}
 video{
-width:432px;
+width:100%;
 
+}
+h3{
+  display:flex ;
+  align-content: center;
 }
 
 
@@ -48,4 +51,9 @@ footer{
     color: white;
   height: 60px;
   align-items: center;
+}
+@media screen and (max-device-width: 480px) and (min-device-width: 320px) {
+    .grade{
+       grid-template-columns: 1fr;
+    }
 }
