@@ -1,0 +1,40 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+header{
+    display: flex;
+  justify-content: space-between;
+  background-color: rgb(255, 166, 0);
+  height: 80px;
+  align-items: center;
+  }
+  .procurar{
+    display: flex;
+    align-items: center;
+    margin: 30px ;
+    }
+    #buscar{
+        padding: 10px;
+    }
+  footer{
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.808);
+    color: white;
+  height: 60px;
+  align-items: center;
+  
+}
+a{
+  text-decoration: none;
+  color: black;
+  
+}
+.video{
+    display: flex;
+justify-content: center;
+margin-top: 80px;
+}
+main{
+  height: 100vh;
+}
