@@ -26,6 +26,24 @@ export default class app extends React.Component {
 
   componentDidMount() {
     this.pegarUsuario()
+
+  }
+  removerUsuario = (id) => {
+    let start = confirm ("voce realmente deseja excluir este usuario?")
+    if(start){
+      axios.delete(`https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/${id}`, {
+        headers: {
+          Authorization: "Tiago-AlbaMoreno-Hopper"
+        }
+      }).then(() => {
+        
+             
+          alert("usuario deletado")
+      this.pegarUsuario()
+      }).catch(() => {
+        alert("Deu ruim")
+      })
+    }
     
   }
 
@@ -39,9 +57,11 @@ export default class app extends React.Component {
         Authorization: "Tiago-AlbaMoreno-Hopper"
       }
     }).then((resposta) => {
-      alert(resposta.data)
+      this.setState({ inputUsuario: "", inputEmail: "" })
+      this.pegarUsuario()
+      alert("Usuario criado com Sucesso")
     }).catch((err) => {
-      alert(err.menssage)
+      alert("Deu ruim")
     })
   }
 
@@ -59,10 +79,11 @@ export default class app extends React.Component {
         Authorization: "Tiago-AlbaMoreno-Hopper"
       }
     }).then((resposta) => {
-      this.setState({ usuario: resposta.data })
-      alert(resposta.menssage)
+      this.setState({ usuarios: resposta.data, })
+
+
     }).catch((err) => {
-      alert(err.menssage)
+
     })
   }
   onClickPaginaCadastro = () => {
@@ -73,14 +94,14 @@ export default class app extends React.Component {
   }
 
   render() {
-    console.log(this.state.usuarios)
-    
-    let novoUsuario = this.state.usuarios.map((novos) => {
+
+
+    let novoUsuario = this.state.usuarios.map((novo) => {
       return (
-        <div>
-          <p>name = {novos.name}</p>
-          <p>email = {novos.email}</p>
-          <button>Apagar</button>
+        <div key={novo.id}>
+          <p>name: {novo.name}</p>
+         
+          <button onClick={() => this.removerUsuario(novo.id)}>Apagar</button>
         </div>
 
 
@@ -107,3 +128,6 @@ export default class app extends React.Component {
   }
 
 }
+        
+    
+    
