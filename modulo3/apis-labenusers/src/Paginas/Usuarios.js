@@ -3,7 +3,7 @@ import styled from "styled-components"
 
 
 const NovosUsuarios = styled.div`
-
+text-align: center;
 `
 
 export default class Usuario extends React.Component{

@@ -4,6 +4,7 @@ import styled from "styled-components"
 
 
 const NovosCadastros = styled.div`
+align-self: center;
 `
 
 export default class Cadastro extends React.Component {

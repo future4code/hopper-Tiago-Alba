@@ -29,7 +29,7 @@ export default class app extends React.Component {
 
   }
   removerUsuario = (id) => {
-    let start = confirm ("voce realmente deseja excluir este usuario?")
+    let start = window.confirm ("voce realmente deseja excluir este usuario?")
     if(start){
       axios.delete(`https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/${id}`, {
         headers: {
@@ -104,8 +104,6 @@ export default class app extends React.Component {
           <button onClick={() => this.removerUsuario(novo.id)}>Apagar</button>
         </div>
 
-
-
       )
     })
 
@@ -128,6 +126,8 @@ export default class app extends React.Component {
   }
 
 }
+
+
         
     
     
