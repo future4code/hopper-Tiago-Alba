@@ -20,6 +20,7 @@ const Tracks = styled.div`
 const ShowList = styled.button`
 :hover{
    cursor: pointer;
+   color: red;
    };
    
 border:none !important;
@@ -38,6 +39,10 @@ text-align:center;
 `
 const LiPlayList = styled.li`
 margin-bottom: 3%;
+
+`
+const InputPlaylists = styled.input`
+opacity: 0;
 
 `
 
@@ -146,6 +151,7 @@ export default class PlayList extends React.Component {
     checkId = () => {
 
         let playList = this.state.lists.find(newList => newList.name === this.state.inputPlayList)
+        console.log (playList)
         this.addTracks(playList.id)
 
     }
@@ -162,7 +168,12 @@ export default class PlayList extends React.Component {
 
             )
         })
-
+        let selectList = this.state.lists.map((list)=>{
+            return(
+                <option >{list.name}</option>
+            )
+        })
+        console.log(this.state.inputPlayList)
         let newTrackList = this.state.trackList.map((list, index) => {
             return (
                 <li key={index}>
@@ -170,8 +181,7 @@ export default class PlayList extends React.Component {
                     <p>Musica: {list.name} </p>
                     <p>Artista: {list.artist} </p>
                     <audio controls="control">
-                        <source src={list.url} type="audio/mp3" />escute</audio>
-
+                     <source src={list.url} type="audio/mp3" />escute</audio>
 
 
                 </li>
@@ -199,11 +209,14 @@ export default class PlayList extends React.Component {
 
                     <div>
                         <h1>Adicionar Tracks</h1>
-                        <input value={this.state.inputPlayList} onChange={this.onChangeInputPlayList} placeholder="Nome PlayList" />
+                        <select value={this.state.inputPlayList} onChange={this.onChangeInputPlayList}>
+                        {selectList}
+                        </select>
                         <input value={this.state.inputName} onChange={this.onChangeName} placeholder="Musica" />
                         <input value={this.state.inputArtist} onChange={this.onChangeArtist} placeholder="Artista" />
                         <input value={this.state.inputUrl} onChange={this.onChangeUrl} placeholder="Url" />
                         <button onClick={this.checkId}>add tracks</button>
+                        <InputPlaylists disabled value={this.state.inputPlayList} onChange={this.onChangeInputPlayList} placeholder="Nome PlayList"/>
                     </div>
 
 
@@ -213,6 +226,9 @@ export default class PlayList extends React.Component {
         )
     }
 }
+
+                        
+                        
 
 
 
