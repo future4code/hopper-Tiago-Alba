@@ -21,7 +21,7 @@ export class Product {
     getName(): string {
         return this.name
     }
-    getPrice(): Number {
+    getPrice(): number {
         return this.price
     }
 }

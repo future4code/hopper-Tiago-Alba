@@ -1,9 +1,9 @@
 import { Request, Response } from "express"
-import connection from "../database/connection"
-import { TABLE_PRODUCTS, TABLE_PURCHASES, TABLE_USERS } from "../database/tableNames"
 import { Product } from "../models/Product"
 import { Purchase } from "../models/Purchase"
-
+import {PurchaseDataBase} from "../database/PurchaseDataBase"
+import {UserDataBase} from "../database/UserDataBase"
+import {ProductsDataBase} from "../database/ProducstDataBase"
 export const createPurchase = async (req: Request, res: Response) => {
     let errorCode = 400
     try {
@@ -15,20 +15,17 @@ export const createPurchase = async (req: Request, res: Response) => {
         if (!userId || !productId || !quantity) {
             throw new Error("Body inválido.")
         }
-
-        const findUser = await connection(TABLE_USERS)
-            .select()
-            .where({ id: userId })
+        const userDataBase = new UserDataBase()
+        const findUser = await userDataBase.getUserById(userId)
+         
 
         if (findUser.length === 0) {
             errorCode = 404
             throw new Error("Usuário não encontrado.")
         }
-
-        const findProduct = await connection(TABLE_PRODUCTS)
-            .select()
-            .where({ id: productId })
-
+        const productDataBase = new ProductsDataBase()
+        const findProduct = await productDataBase.getProductById(productId) 
+           
         if (findProduct.length === 0) {
             errorCode = 404
             throw new Error("Produto não encontrado.")
@@ -43,16 +40,16 @@ export const createPurchase = async (req: Request, res: Response) => {
 
         const price = JSON.parse(JSON.stringify(product.getPrice()))
         const totalPrice = price * quantity
-        const newPurchase = new Purchase(id, userId, productId, quantity, totalPrice)
-
-
-        await connection(TABLE_PURCHASES).insert({
+        const newPurchase = new Purchase(id, userId, product.getId(), quantity, totalPrice)
+         const purchaseDataBase = new PurchaseDataBase()
+         await purchaseDataBase.createPurchase(newPurchase)
+       /* await connection(TABLE_PURCHASES).insert({
             id: newPurchase.getId(),
             user_id: newPurchase.getUserId(),
             product_id: newPurchase.getProductId(),
             quantity: newPurchase.getQuantity(),
             total_price: newPurchase.getTotalPrice()
-        })
+        })*/
 
         res.status(201).send({ message: "Compra registrada", purchase: newPurchase })
     } catch (error) {
