@@ -1,0 +1,17 @@
+POST http://localhost:3003/createUser 
+Content-Type: application/json
+
+{
+    "name": "Tiago",
+    "email": "tiago@email",
+    "password": "123"
+}
+
+### 
+GET http://localhost:3003/getAllUser
+
+###
+DELETE http://localhost:3003/deleteUser
+Content-Type: application/json
+
+query parans = ?id=1665541796657
