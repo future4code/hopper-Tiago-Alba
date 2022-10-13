@@ -6,12 +6,13 @@ export class UserController {
      public createUser = async(req:Request,res:Response ) => {
         try {
             const {name,email,password} = req.body
-    
+            
         const data = {
             name,
             email,
             password
         }
+        console.log(data);
         
         await UserController.userBusiness.CreateUser(data)
     
@@ -24,6 +25,8 @@ export class UserController {
     public getAllUser = async(req:Request,res:Response) => {
         try {
             const users = await UserController.userBusiness.getUsers()
+            console.log(users);
+            
             res.status(200).send(users)
         } catch (error: any) {
             res.status(400).send(error.message)

@@ -11,10 +11,14 @@ export class UserDataBase extends BaseDatabase{
             email: newUser.getEmail(),
             password: newUser.getPassword()
         })
+        console.log(result,"aaa");
+        
         return result
     }
     public async getAllUser(){
-        const result : User[] = await BaseDatabase.connection(UserDataBase.TABLE_USER).select("*")
+        const result  = await BaseDatabase.connection(UserDataBase.TABLE_USER).select("*")
+        console.log(result);
+        
         return result
     }
     public async deleteUser(id:string){
