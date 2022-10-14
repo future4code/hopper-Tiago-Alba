@@ -12,7 +12,7 @@ export class UserController {
             email,
             password
         }
-        console.log(data);
+      
         
         await UserController.userBusiness.CreateUser(data)
     
@@ -25,7 +25,7 @@ export class UserController {
     public getAllUser = async(req:Request,res:Response) => {
         try {
             const users = await UserController.userBusiness.getUsers()
-            console.log(users);
+            
             
             res.status(200).send(users)
         } catch (error: any) {
@@ -35,6 +35,8 @@ export class UserController {
     public deleteUser = async(req:Request,res:Response) =>{
         try {
             const id = req.query.id 
+            console.log(id);
+            
           await UserController.userBusiness.deleteUser(id)
            res.status(200).send("Usuario deletado com sucesso!")
         } catch (error: any) {

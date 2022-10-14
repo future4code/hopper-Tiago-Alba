@@ -11,13 +11,13 @@ export class UserDataBase extends BaseDatabase{
             email: newUser.getEmail(),
             password: newUser.getPassword()
         })
-        console.log(result,"aaa");
+        
         
         return result
     }
     public async getAllUser(){
         const result  = await BaseDatabase.connection(UserDataBase.TABLE_USER).select("*")
-        console.log(result);
+        
         
         return result
     }
@@ -26,5 +26,7 @@ export class UserDataBase extends BaseDatabase{
         .where({
             id : id
         })
+        return result
     }
+    
 }
