@@ -12,9 +12,7 @@ export class RecipeBussines {
     public async Create({ token, title, description, }: RecipeInputDTO) {
         try {
             const userId = authentication.getTokenData(token)
-            console.log(userId);
-
-            console.log(userId.id);
+         
 
             if (!userId) {
                 throw new InvalidToken()
