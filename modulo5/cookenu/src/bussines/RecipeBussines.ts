@@ -16,7 +16,7 @@ export class RecipeBussines {
             if (!userId) {
                 throw new InvalidToken()
             }
-            if (!title || description) {
+            if (!title || !description) {
                 throw new InvalidRequest()
             }
             const id: string = generateID()
