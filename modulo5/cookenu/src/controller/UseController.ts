@@ -46,6 +46,8 @@ export class UserController {
 
         try {
             const token = req.headers.authorization as string
+           
+            
 
             const profile = await this.userBussines.Profile(token)
 

@@ -1,3 +1,3 @@
-export interface AuthenticationData  {
-    token:string
+export type AuthenticationData = {
+    id:string
 }

@@ -27,7 +27,7 @@ export class UserBussines {
             const hashPassword = await hash.hash(password)
             const newUser = new User(id, name, email, hashPassword)
             await this.userBaseDatabase.insertUser(newUser)
-            const token  = authenticator.generateToken(id)
+            const token  = authenticator.generateToken({id})
             return token
 
         } catch (error: any) {
@@ -48,7 +48,8 @@ export class UserBussines {
             if (!isValidPassword) {
                 throw new InvalidPassword()
             }
-            const token = authenticator.generateToken(user.id)
+                const  id : string = user.id
+            const token =  authenticator.generateToken({id})
             return token
         } catch (error: any) {
             throw new Error(error.message)
@@ -57,12 +58,17 @@ export class UserBussines {
     }
     public async Profile(token: string) {
         try {
-            const id = authenticator.getTokenData(token)
+            const {id} = authenticator.getTokenData(token)
+           
+            
             if (!token || !id) {
                 throw new InvalidRequest()
             }
+           
+            
             const profile = await this.userBaseDatabase.findUser(id)
-
+            
+            
             return profile
         } catch (error: any) {
             throw new Error(error.message)

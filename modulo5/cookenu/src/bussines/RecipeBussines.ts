@@ -1,5 +1,4 @@
 import { RecipeBaseDatabase } from "../data/RecipeBaseDatabase";
-
 import { InvalidRecipe, InvalidRequest, InvalidToken } from "../Erro/invalidRequest";
 import { FindRecipeInputDTO, Recipe, RecipeInputDTO } from "../model/Recipe";
 import { Authenticator } from "../service/Authenticator"
@@ -13,6 +12,10 @@ export class RecipeBussines {
     public async Create({ token, title, description, }: RecipeInputDTO) {
         try {
             const userId = authentication.getTokenData(token)
+            console.log(userId);
+
+            console.log(userId.id);
+
             if (!userId) {
                 throw new InvalidToken()
             }
@@ -21,7 +24,9 @@ export class RecipeBussines {
             }
             const id: string = generateID()
 
-            const newRecipe = new Recipe(id, title, description, userId)
+            const newRecipe = new Recipe(id, title, description, userId.id)
+            console.log(newRecipe);
+
             await this.recipeDatabase.insertRecipe(newRecipe)
         } catch (error: any) {
             throw new Error(error.message)
@@ -30,7 +35,7 @@ export class RecipeBussines {
     }
     public async UserRecipe({ token, id }: FindRecipeInputDTO) {
         try {
-            const userId: string = authentication.getTokenData(token)
+            const userId = authentication.getTokenData(token)
             if (!userId) {
                 throw new InvalidToken()
             }

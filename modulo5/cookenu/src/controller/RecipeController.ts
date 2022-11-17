@@ -9,6 +9,8 @@ export class RecipeController {
         try {
             const {title,description} = req.body
         const token = req.headers.authorization as string
+        console.log( token);
+        
         const input:RecipeInputDTO = {
             token,
             title,

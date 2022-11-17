@@ -11,7 +11,7 @@ export class RecipeBaseDatabase extends BaseDatabase implements RecipeRespositor
             id: newRecipe.getId(),
             title: newRecipe.getTitle(),
             description: newRecipe.getDescription(),
-            id_user: newRecipe.getidUser()
+            user_id: newRecipe.getidUser()
         })
     }
     public async findRecipe(id: string): Promise<any> {
